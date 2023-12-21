@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+    int totalHoursNeeded, daysAvailable, numWorkers;
+    scanf("%d %d %d", &totalHoursNeeded, &daysAvailable, &numWorkers);
+    int totalAvailableHours = daysAvailable * 8 * (1 - 0.1);
+    int totalAvailableHoursWithOvertime = totalAvailableHours * numWorkers + (daysAvailable * numWorkers * 2 * 0.9);
+    int hoursLeft = totalAvailableHoursWithOvertime - totalHoursNeeded;
+
+    if (hoursLeft >= 0) {
+        printf("Yes! %d hours left.\n", hoursLeft);
+    } else {
+        printf("Not enough time! %d hours needed\n", -hoursLeft);
+    }
+    return 0;
+}
