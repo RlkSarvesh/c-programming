@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main()
+{
+    int i,j;
+    int dim;
+    printf("enter the dimension:");
+    scanf("%d",&dim);
+    int arr[dim][dim];
+    for (i=0;i<dim;i++)
+    {
+        for(j=0;j<dim;j++)
+        { 
+                printf("enter the element in %d %d: ",i,j);
+                scanf("%d",&arr[i][j]);
+            }
+    }
+    for (i=0;i<dim;i++)
+    {
+        for(j=0;j<dim;j++)
+        { 
+                printf("%d",arr[i][j]);
+        }
+        printf("\n") ;  
+        }
+    return 0;
+}
