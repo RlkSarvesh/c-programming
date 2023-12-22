@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+void justifySentence(char sentence[], int screenLength) {
+    int length = strlen(sentence);
+    int spacesToAdd = screenLength - length;
+    if (spacesToAdd <= 0) {
+        printf("%s\n", sentence);
+        return;
+    }
+    int spacesBetweenWords = spacesToAdd / (length - 1);
+    int extraSpaces = spacesToAdd % (length - 1);
+    for (int i = 0; i < length; i++) {
+        if (sentence[i] == ' ') {
+            int j;
+            for (j = 0; j < spacesBetweenWords; j++) {
+                printf("*");
+            }
+            if (extraSpaces > 0) {
+                printf("*");
+                extraSpaces--;
+            }
+        } else {
+            printf("%c", sentence[i]);
+        }
+    }
+    printf("\n");
+}
+int main() {
+    char sentence[100];
+    int screenLength;
+    printf("Enter the sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+    sentence[strcspn(sentence, "\n")] = '\0'; 
+    printf("Enter the screen length: ");
+    scanf("%d", &screenLength);
+    justifySentence(sentence, screenLength);
+    return 0;
+}
